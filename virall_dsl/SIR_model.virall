@@ -1,0 +1,21 @@
+begin
+    createModel SIR_model
+        SIR
+    stop
+    calculate SIR_model
+        population 1000
+        beta 1
+        D 4
+        susceptible 999
+        infected 1
+        recovered 0
+        days 50
+    stop
+    plot
+        susceptible green
+        infected red 
+        recovered blue
+        x_label time
+        y_label population
+    stop
+end

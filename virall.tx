@@ -1,0 +1,75 @@
+Assignment:
+    '='
+;
+
+Color:
+    'red' | 'green' | 'blue' | 'yellow' | 'magenta' | 'cyan'
+;
+
+Compartment:
+    'susceptible' | 'infected' | 'recovered' | 'exposed'
+; 
+
+Characteristic:
+    'beta' | 'D' | 'gamma'
+;
+
+PopulationSize:
+    'population' x=INT
+;
+
+Time:
+    'days' x=INT
+;
+
+Population:
+    initial_compartment=Compartment assignment=Assignment x=INT
+;
+
+Disease:
+    disease_characteristic=Characteristic assignment=Assignment x=FLOAT
+;
+
+ModelType:
+    'SIR' | 'SEIR'
+;
+
+CreateModel:
+    'createModel' name=ID
+        model_type=ModelType ":"
+            susceptible = Compartment a=ID 
+            infected = Compartment b=ID
+            recovered = Compartment c=ID
+            beta = Characteristic d=ID
+            gamma = Characteristic e=ID
+            D = Characteristic f=ID
+    'end'
+;
+
+Calculate:
+    'calculate' name=ID
+        model = CreateModel
+        population_size = PopulationSize
+        beta = Disease
+        D = Disease
+        susceptible = Population
+        infected = Population
+        Recovered = Population
+        time_frame = Time
+    'end'
+;
+
+Plot:
+    "plot" 
+        solved_equations = Calculate
+        "susceptible" susceptible_color = Color
+        "infected" infected_color = Color
+        "recovered" recovered_color = Color
+        "x_label" x_label=ID
+        "y_label" y_label=ID
+    "end"
+;
+
+Comment:
+    /\/\*(.|\n)*?\*\// | /\/\/.*?$/
+;

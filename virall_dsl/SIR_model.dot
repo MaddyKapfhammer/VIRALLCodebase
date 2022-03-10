@@ -1,0 +1,36 @@
+
+    digraph textX {
+    fontname = "Bitstream Vera Sans"
+    fontsize = 8
+    node[
+        shape=record,
+        style=filled,
+        fillcolor=aliceblue
+    ]
+    nodesep = 0.3
+    edge[dir=black,arrowtail=empty]
+
+
+140102813273680 -> 140102813272912 [label="commands:0" arrowtail=diamond dir=both]
+140102813272912[label="{SIR_model:CreateModel|+model_type:str='SIR'\l}"]
+140102813273680 -> 140102813273008 [label="commands:1" arrowtail=diamond dir=both]
+140102813273008 -> 140102813270800 [label="population_size" arrowtail=diamond dir=both]
+140102813270800[label="{:PopulationSize|+x:int=1000\l}"]
+140102813273008 -> 140102813271712 [label="beta" arrowtail=diamond dir=both]
+140102813271712[label="{:Disease|+disease_characteristic:str='beta'\l+x:float=1.0\l}"]
+140102813273008 -> 140102813271856 [label="D" arrowtail=diamond dir=both]
+140102813271856[label="{:Disease|+disease_characteristic:str='D'\l+x:float=4.0\l}"]
+140102813273008 -> 140102813272192 [label="susceptible" arrowtail=diamond dir=both]
+140102813272192[label="{:Population|+initial_compartment:str='susceptible'\l+x:int=999\l}"]
+140102813273008 -> 140102813270560 [label="infected" arrowtail=diamond dir=both]
+140102813270560[label="{:Population|+initial_compartment:str='infected'\l+x:int=1\l}"]
+140102813273008 -> 140102813270704 [label="recovered" arrowtail=diamond dir=both]
+140102813270704[label="{:Population|+initial_compartment:str='recovered'\l+x:int=0\l}"]
+140102813273008 -> 140102813271040 [label="time_frame" arrowtail=diamond dir=both]
+140102813271040[label="{:Time|+x:int=50\l}"]
+140102813273008[label="{SIR_model:Calculate|}"]
+140102813273680 -> 140102813270752 [label="commands:2" arrowtail=diamond dir=both]
+140102813270752[label="{:Plot|+susceptible_color:str='green'\l+infected_color:str='red'\l+recovered_color:str='blue'\l+x_label:str='time'\l+y_label:str='population'\l}"]
+140102813273680[label="{:Program|}"]
+
+}

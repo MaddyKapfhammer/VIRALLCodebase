@@ -1,0 +1,71 @@
+Program:
+    'begin'
+        commands*=Command
+    'end'
+;
+
+Command:
+    CreateModel | Calculate | Plot
+;
+
+CreateModel:
+    'createModel' name=ID
+        model_type=ModelType
+    'stop'
+;
+
+Calculate:
+    'calculate' name=ID
+        population_size = PopulationSize
+        beta = Disease
+        D = Disease
+        susceptible = Population
+        infected = Population
+        recovered = Population
+        time_frame = Time
+    'stop'
+;
+
+Plot:
+    'plot'
+        'susceptible' susceptible_color = Color
+        'infected' infected_color = Color
+        'recovered' recovered_color = Color
+        'x_label' x_label=ID
+        'y_label' y_label=ID
+    'stop'
+;
+
+
+
+Color:
+    'red' | 'green' | 'blue' | 'yellow' | 'magenta' | 'cyan'
+;
+
+Compartment:
+    'susceptible' | 'infected' | 'recovered' | 'exposed'
+; 
+
+Characteristic:
+    'beta' | 'D' | 'gamma'
+;
+
+PopulationSize:
+    'population' x=INT
+;
+
+Time:
+    'days' x=INT
+;
+
+Population:
+    initial_compartment=Compartment x=INT
+;
+
+Disease:
+    disease_characteristic=Characteristic x=FLOAT
+;
+
+ModelType:
+    'SIR' | 'SEIR'
+;
