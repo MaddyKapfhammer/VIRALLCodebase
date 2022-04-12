@@ -25,9 +25,9 @@ begin
         days 50
     stop
     
-    plot
-        susceptible green
-        infected red 
+    plot SIR_model
+        susceptible yellow
+        infected red
         recovered blue
         x_label time
         y_label population
