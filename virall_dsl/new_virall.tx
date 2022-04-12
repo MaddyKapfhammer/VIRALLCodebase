@@ -10,44 +10,59 @@ Command:
 
 CreateModel:
     'createModel' name=ID
-        model_type=ModelType
+        'compartments'
+            BooleanCompartment
+        'rates'
+            BooleanRate
     'stop'
 ;
 
 Calculate:
     'calculate' name=ID
         population_size = PopulationSize
-        beta = Disease
-        D = Disease
-        susceptible = Population
-        infected = Population
-        recovered = Population
+        compartment=Population
+        disease_rates=Disease
         time_frame = Time
     'stop'
 ;
 
 Plot:
-    'plot'
-        'susceptible' susceptible_color = Color
-        'infected' infected_color = Color
-        'recovered' recovered_color = Color
+    'plot' name=ID
+        CompartmentColor
         'x_label' x_label=ID
         'y_label' y_label=ID
     'stop'
 ;
 
+BooleanCompartment:
+    (initial_compartment=Compartment boolean_value=Boolean)+
+;
 
+BooleanRate:
+    (initial_rate=Rate boolean_value=Boolean)+
+;
 
+CompartmentColor:
+    (initial_compartment=Compartment compartment_color=Color)+
+;
 Color:
     'red' | 'green' | 'blue' | 'yellow' | 'magenta' | 'cyan'
 ;
 
 Compartment:
-    'susceptible' | 'infected' | 'recovered' | 'exposed'
+    'susceptible' | 'infected' | 'recovered' | 'exposed' | 'vaccinated' | 'dead'
 ; 
+
+Boolean:
+    'True' | 'False'
+;
 
 Characteristic:
     'beta' | 'D' | 'gamma'
+;
+
+Rate:
+    'recovery' | 'transmission' | 'death' | 'arrival' | 'vaccination'
 ;
 
 PopulationSize:
@@ -59,11 +74,11 @@ Time:
 ;
 
 Population:
-    initial_compartment=Compartment x=INT
+    (initial_compartment=Compartment x=INT)+
 ;
 
 Disease:
-    disease_characteristic=Characteristic x=FLOAT
+    (disease_characteristic=Rate x=FLOAT)+
 ;
 
 ModelType:
