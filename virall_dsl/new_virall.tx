@@ -80,7 +80,3 @@ Population:
 Disease:
     (disease_characteristic=Rate x=FLOAT)+
 ;
-
-ModelType:
-    'SIR' | 'SEIR'
-;
