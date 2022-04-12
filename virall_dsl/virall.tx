@@ -11,9 +11,9 @@ Command:
 CreateModel:
     'createModel' name=ID
         'compartments'
-            BooleanCompartment
+            compartment_definition=BooleanCompartment
         'rates'
-            BooleanRate
+            rate_definition=BooleanRate
     'stop'
 ;
 
@@ -28,7 +28,7 @@ Calculate:
 
 Plot:
     'plot' name=ID
-        CompartmentColor
+        compartment_color_definition=CompartmentColor
         'x_label' x_label=ID
         'y_label' y_label=ID
     'stop'
@@ -55,10 +55,6 @@ Compartment:
 
 Boolean:
     'True' | 'False'
-;
-
-Characteristic:
-    'beta' | 'D' | 'gamma'
 ;
 
 Rate:

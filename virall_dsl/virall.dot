@@ -1,0 +1,67 @@
+
+    digraph textX {
+    fontname = "Bitstream Vera Sans"
+    fontsize = 8
+    node[
+        shape=record,
+        style=filled,
+        fillcolor=aliceblue
+    ]
+    nodesep = 0.3
+    edge[dir=black,arrowtail=empty]
+
+
+94379842986208[ label="{Program|}"]
+
+94379842966448[ label="{*Command|}"]
+
+94379843120688[ label="{CreateModel|name: ID\l}"]
+
+94379843126816[ label="{Calculate|name: ID\l}"]
+
+94379843132352[ label="{Plot|name: ID\lx_label: ID\ly_label: ID\l}"]
+
+94379843137888[ label="{BooleanCompartment|initial_compartment: list[Compartment]\lboolean_value: list[Boolean]\l}"]
+
+94379843143424[ label="{BooleanRate|initial_rate: list[Rate]\lboolean_value: list[Boolean]\l}"]
+
+94379843150080[ label="{CompartmentColor|initial_compartment: list[Compartment]\lcompartment_color: list[Color]\l}"]
+
+94379843130352[ label="{PopulationSize|x: INT\l}"]
+
+94379842918368[ label="{Time|x: INT\l}"]
+
+94379843154080[ label="{Population|initial_compartment: list[Compartment]\lx: list[INT]\l}"]
+
+94379843171280[ label="{Disease|disease_characteristic: list[Rate]\lx: list[FLOAT]\l}"]
+
+
+
+94379842986208 -> 94379842966448[arrowtail=diamond, dir=both, headlabel="commands 0..*"]
+94379842966448 -> 94379843120688 [dir=back]
+94379842966448 -> 94379843126816 [dir=back]
+94379842966448 -> 94379843132352 [dir=back]
+94379843120688 -> 94379843137888[arrowtail=diamond, dir=both, headlabel="compartment_definition "]
+94379843120688 -> 94379843143424[arrowtail=diamond, dir=both, headlabel="rate_definition "]
+94379843126816 -> 94379843130352[arrowtail=diamond, dir=both, headlabel="population_size "]
+94379843126816 -> 94379843154080[arrowtail=diamond, dir=both, headlabel="compartment "]
+94379843126816 -> 94379843171280[arrowtail=diamond, dir=both, headlabel="disease_rates "]
+94379843126816 -> 94379842918368[arrowtail=diamond, dir=both, headlabel="time_frame "]
+94379843132352 -> 94379843150080[arrowtail=diamond, dir=both, headlabel="compartment_color_definition "]
+match_rules [ shape=plaintext, label=< <table>
+	<tr>
+		<td><b>Boolean</b></td><td>True|False</td>
+	</tr>
+	<tr>
+		<td><b>Color</b></td><td>red|green|blue|yellow|magenta|cyan</td>
+	</tr>
+	<tr>
+		<td><b>Compartment</b></td><td>susceptible|infected|recovered|exposed|vaccinated|dead</td>
+	</tr>
+	<tr>
+		<td><b>Rate</b></td><td>recovery|transmission|death|arrival|vaccination</td>
+	</tr>
+</table> >]
+
+
+}

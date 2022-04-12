@@ -1,16 +1,30 @@
 begin
     createModel SIR_model
-        SIR
+        compartments
+            susceptible True
+            infected True
+            recovered True
+            exposed False
+            vaccinated False
+            dead False
+        rates
+            recovery True
+            transmission True
+            death False
+            arrival False
+            vaccination False
     stop
+
     calculate SIR_model
         population 1000
-        beta 1
-        D 4
         susceptible 999
         infected 1
         recovered 0
+        transmission 0.2
+        recovery 0.7
         days 50
     stop
+    
     plot
         susceptible green
         infected red 
