@@ -15,6 +15,7 @@ def specify_compartments(exposed, vaccinated, maternal, warning, compromised):
     
     return all_compartments
 
+
 def specify_disease_characteristics(mu, alpha, d):
     disease_characteristics = []
     disease_characteristics.append("beta", "gamma")

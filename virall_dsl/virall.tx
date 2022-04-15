@@ -11,9 +11,9 @@ Command:
 CreateModel:
     'createModel' name=ID
         'compartments'
-            susceptible_definition=BooleanCompartment
+            compartment_definition=BooleanCompartment
         'rates'
-            recovery_definition=BooleanRate
+            rate_definition=BooleanRate
     'stop'
 ;
 

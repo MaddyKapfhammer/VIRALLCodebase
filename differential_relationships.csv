@@ -1,0 +1,22 @@
+target_compartment, other_compartment, take_away, add_to, rate
+susceptible, infected, False, True, beta
+susceptible, recovered, False, False, N/A
+susceptible, exposed, False, True, beta
+susceptible, vaccinated, False, True, vaccination
+susceptible, dead, False, False, N/A
+infected, susceptible, True, False, beta
+infected, recovered, False, True, gamma
+infected, exposed, True, False, beta
+infected, vaccinated, False, False, N/A
+infected, dead, False, True, mu
+recovered, susceptible, False, False, N/A
+recovered, infected, True, False, gamma
+recovered, exposed, False, False, N/A
+recovered, vaccinated, False, False, N/A
+recovered, dead, False, True, mu
+vaccinated, susceptible, True, False, vaccination
+vaccinated, infected, True, False, vaccination
+vaccinated, recovered, False, False, N/A
+vaccinated, exposed, True, False, vaccination
+vaccinated, dead, False, False, N/A
+dead, susceptible, 
